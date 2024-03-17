@@ -2,7 +2,9 @@ package com.best.free.top.auctionbazaar.ui.signup
 
 import android.content.Intent
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.best.free.top.auctionbazaar.DataState
 import com.best.free.top.auctionbazaar.R
 import com.best.free.top.auctionbazaar.base.BaseFragment
 import com.best.free.top.auctionbazaar.databinding.FragmentSignUpBinding
@@ -10,7 +12,9 @@ import com.best.free.top.auctionbazaar.isEmpty
 import com.best.free.top.auctionbazaar.ui.dashboard.DashboardActivity
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate) {
+    private val viewModel : SignUpViewModel by viewModels()
     override fun allObserver() {
+        signUpObserver()
     }
 
     override fun setListener() {
@@ -38,16 +42,13 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
         val password = binding.etPassword.text.toString()
         if (emailPattern.matches(email)){
             if (password.length>=8){
-                /*val user = UserSignUp(
+                val user = UserSignUp(
                     name,
                     email,
                     password,
-                    "Seller",
                     ""
                 )
-                viewModel.userSignup(user)*/
-                startActivity(Intent(requireContext(), DashboardActivity::class.java))
-                requireActivity().finish()
+                viewModel.userSignUp(user)
             }
             else{
                 Toast.makeText(context, "enter correct password", Toast.LENGTH_SHORT).show()
@@ -55,6 +56,24 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
         }
         else{
             Toast.makeText(context, "enter correct email/password", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun signUpObserver() {
+        viewModel.userSignUpResponse_.observe(viewLifecycleOwner){
+            when(it){
+                is DataState.Error -> {
+                    loading.dismiss()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Loading -> {
+                    loading.show()
+                }
+                is DataState.Success -> {
+                    loading.dismiss()
+                    startActivity(Intent(requireContext(), DashboardActivity::class.java))
+                    requireActivity().finish()
+                }
+            }
         }
     }
 }
