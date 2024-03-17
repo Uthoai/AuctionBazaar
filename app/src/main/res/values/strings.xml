@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Auction_Bazaar</string>
+    <string name="app_name">Auction Bazaar</string>
+    <string name="signup">SignUp</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_auction_nbazaar">Welcome to Auction\nBazaar</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="new_user">new user?…</string>
+    <string name="full_name">full name</string>
+    <string name="already_have_an_account">already have an account…</string>
+
 </resources>

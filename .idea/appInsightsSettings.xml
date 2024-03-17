@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.best.free.top.auctionbazaar" />
+                  <option name="mobileSdkAppId" value="1:621117959842:android:1f261e8fb89953f9f131fb" />
+                  <option name="projectId" value="auction-bazaar-android" />
+                  <option name="projectNumber" value="621117959842" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
