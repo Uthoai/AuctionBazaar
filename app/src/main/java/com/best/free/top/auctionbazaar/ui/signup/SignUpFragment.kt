@@ -4,11 +4,11 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.best.free.top.auctionbazaar.DataState
+import com.best.free.top.auctionbazaar.core.DataState
 import com.best.free.top.auctionbazaar.R
 import com.best.free.top.auctionbazaar.base.BaseFragment
 import com.best.free.top.auctionbazaar.databinding.FragmentSignUpBinding
-import com.best.free.top.auctionbazaar.isEmpty
+import com.best.free.top.auctionbazaar.core.isEmpty
 import com.best.free.top.auctionbazaar.ui.dashboard.DashboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 

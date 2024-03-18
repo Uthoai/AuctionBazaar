@@ -1,4 +1,4 @@
-package com.best.free.top.auctionbazaar
+package com.best.free.top.auctionbazaar.core
 
 import android.widget.EditText
 fun EditText.isEmpty(): Boolean{

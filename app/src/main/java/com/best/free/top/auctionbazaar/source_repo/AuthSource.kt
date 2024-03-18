@@ -8,5 +8,6 @@ import com.google.firebase.auth.AuthResult
 interface AuthSource {
     fun userSignUp(userSignUp: UserSignUp): Task<AuthResult>
     fun userLogin(userLogin: UserLogin): Task<AuthResult>
+    fun createUser(userSignUp: UserSignUp): Task<Void>
 
 }

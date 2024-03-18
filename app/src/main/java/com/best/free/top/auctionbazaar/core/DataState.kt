@@ -1,4 +1,4 @@
-package com.best.free.top.auctionbazaar
+package com.best.free.top.auctionbazaar.core
 
 sealed class DataState<T>(val message: String? = null,val data: T? = null) {
 
