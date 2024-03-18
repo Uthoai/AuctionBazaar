@@ -10,7 +10,9 @@ import com.best.free.top.auctionbazaar.base.BaseFragment
 import com.best.free.top.auctionbazaar.databinding.FragmentLoginBinding
 import com.best.free.top.auctionbazaar.isEmpty
 import com.best.free.top.auctionbazaar.ui.dashboard.DashboardActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
     private val viewModel : LoginViewModel by viewModels()
     override fun allObserver() {

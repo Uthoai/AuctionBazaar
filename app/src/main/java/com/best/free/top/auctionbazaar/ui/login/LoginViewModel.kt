@@ -5,14 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.best.free.top.auctionbazaar.DataState
 import com.best.free.top.auctionbazaar.source_repo.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoginViewModel: ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(private val authRepository: AuthRepository): ViewModel() {
     private val userLoginResponse = MutableLiveData<DataState<UserLogin>>()
     val userLoginResponse_ : LiveData<DataState<UserLogin>> = userLoginResponse
     fun userLogin(userLogin: UserLogin){
         userLoginResponse.postValue(DataState.Loading())
 
-        val authRepository = AuthRepository()
         authRepository.userLogin(userLogin).addOnSuccessListener {
             userLoginResponse.postValue(DataState.Success(userLogin))
         }.addOnFailureListener {

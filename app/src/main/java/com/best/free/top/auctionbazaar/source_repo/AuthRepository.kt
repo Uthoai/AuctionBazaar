@@ -5,9 +5,9 @@ import com.best.free.top.auctionbazaar.ui.signup.UserSignUp
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
 
-class AuthRepository: AuthSource {
-    private val mAuth = FirebaseAuth.getInstance()
+class AuthRepository @Inject constructor(private val mAuth: FirebaseAuth): AuthSource {
     override fun userSignUp(userSignUp: UserSignUp): Task<AuthResult> {
         return mAuth.createUserWithEmailAndPassword(userSignUp.email,userSignUp.password)
     }
